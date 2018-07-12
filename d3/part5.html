@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Learning D3</title><style></style></head><body>
+  <div id="chart"></div>
+<script src="https://d3js.org/d3.v3.min.js"></script><script>
+  var myData = [100, 125, 320, 440, 500, 250, 320, 720, 50];
+  var height = 500;
+  var width = 500;
+  var barWidth = 35;
+  var barOffset = 5;
+  var myChart = d3.select('#chart').append('svg')
+                  .attr('width', width).attr('height', height)
+                  .style('background', '#f4f4f4')
+                  .selectAll('rect')
+                  .data(myData)
+                  .enter().append('rect').style('fill', 'lightgreen')
+                  .attr('width', barWidth)
+                  .attr('height', function(d) { 
+                     return d 
+                  })
+                  .attr('x', function(d, i) {
+                    return i * (barWidth + barOffset);
+                  })
+                  .attr('y', function(d, i) {
+                    return height - d;
+                  });
+</script></body></html>

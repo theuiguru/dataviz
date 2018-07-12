@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Learning D3</title><style>
+.big {font-size:24px;}
+</style></head><body>
+  <p>My name is <span class="name"></span></p>
+  <ul class="items">
+    <li>This is item</li>
+    <li>This is item</li>
+    <li>This is item</li>
+    <li>This is item</li>
+    <li>This is item</li>
+  </ul>
+<script src="https://d3js.org/d3.v5.min.js"></script><script>
+  //d3.selectAll('li').style('color', 'red');
+  //d3.select('li').style('color', 'red');
+  /*d3.selectAll('li:nth-child(even)').style('color', 'red')
+    .html('This is an even number')
+    .classed('big', true);*/
+  var numArray = [12, 20, 33, 40, 55, 60, 75, 80, 90, 101, 122, 130];
+  
+  var name = 'John Doe';
+  
+  var li = d3.select('body').selectAll('.items li')
+    .data(numArray)
+    .text(function(d) {
+      return 'This is item number ' + d;
+    });
+  
+  li.enter().append('li')
+    .text(function(d) {
+      return 'This is item number ' + d;
+    });
+  
+  li.exit().remove();
+  
+  d3.select('.name').text(name);
+  
+  /*d3.selectAll('.items li')
+    .data(numArray)
+    .style('font-size', function(d) {
+      return d + 'px';
+    })*/
+</script></body></html>
