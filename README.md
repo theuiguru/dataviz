@@ -1,2 +1,2 @@
 # DataViz
-data visualizations and stuff learned from Traversy Media and general sandbox codes.
+Data visualizations using d3js, ChartJS, and other JavaScript libraries.
